@@ -31,7 +31,7 @@
 			<div class="field">
 				<label class="label">半径</label>
 				<div class="control">
-					<input class="input" type="tel" placeholder="8" />
+					<input class="input" type="tel" placeholder="8" value="8" />
 				</div>
 			</div>
 
@@ -39,14 +39,14 @@
 				<div class="field column is-half">
 					<label class="label">回転開始角度</label>
 					<div class="control">
-						<input class="input" type="tel" placeholder="0°(digree)" />
+						<input class="input" type="tel" placeholder="0°(digree)" value="0" />
 					</div>
 				</div>
 
 				<div class="field column is-half">
 					<label class="label">回転終了角度</label>
 					<div class="control">
-						<input class="input" type="tel" placeholder="360°(digree)" />
+						<input class="input" type="tel" placeholder="360°(digree)" value="360" />
 					</div>
 				</div>
 			</div>
@@ -54,14 +54,14 @@
 			<div class="field">
 				<label class="label">分割数</label>
 				<div class="control">
-					<input class="input" type="tel" placeholder="360" />
+					<input class="input" type="tel" placeholder="360" value="360"/>
 				</div>
 			</div>
 
 			<div class="field">
 				<label class="label">配列名</label>
 				<div class="control">
-					<input class="input" type="text" placeholder="array" />
+					<input class="input" type="text" placeholder="array" value="bb"/>
 				</div>
 			</div>
 			<div class="columns">
@@ -121,15 +121,17 @@
 
 
 			<div class="control">
-				<button type="button" class="button is-success">
+				<button type="button" class="button is-success" onclick="convert()">
 					変換
 				</button>
 			</div>
 
 		</form>
+	
 		<h1 class="title has-text-centered has-text-success">
 			結果
 		</h1>
+
 		<form action="">
 			<div class="field">
 				<label class="label">

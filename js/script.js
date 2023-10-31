@@ -109,3 +109,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		destroyCropper();
 	});
 });
+
+function convert(){
+	try{
+		
+	}catch(error){
+
+	}
+}

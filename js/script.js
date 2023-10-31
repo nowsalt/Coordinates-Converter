@@ -88,17 +88,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Crop Image
 	$('#cropButton').on('click', function () {
 		try {
-			var canvas = cropper.getCroppedCanvas();
+			var canvas = cropper.getCroppedCanvas({ width: 200, height: 200});
 			var croppedImage = canvas.toDataURL(); // Use this for further processing
-
-			//let preview = document.getElementById('cropped');
-			//preview.src = croppedImage;
 
 			$('#cropped').attr("src",croppedImage);
 			$('#cropped').css({
-				'border-radius': '50%',
-				'width': '300px',
-				'height': '300px'
+				'border-radius': '50%'
 			  });
 
 			$('#cropperModal').removeClass('is-active');

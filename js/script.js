@@ -88,13 +88,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Crop Image
 	$('#cropButton').on('click', function () {
 		try {
-			var canvas = cropper.getCroppedCanvas({ width: 200, height: 200});
+			var canvas = cropper.getCroppedCanvas({ width: 200, height: 200 });
 			var croppedImage = canvas.toDataURL(); // Use this for further processing
 
-			$('#cropped').attr("src",croppedImage);
+			$('#cropped').attr("src", croppedImage);
 			$('#cropped').css({
 				'border-radius': '50%'
-			  });
+			});
 
 			$('#cropperModal').removeClass('is-active');
 			destroyCropper();
@@ -110,10 +110,47 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
-function convert(){
-	try{
-		
-	}catch(error){
+function convert() {
+	try {
 
+		var radius = $('#radius').val()
+		var image = document.getElementById('cropped');
+		var canvas = document.createElement('canvas');
+		canvas.width = radius*2;
+		canvas.height = radius*2;
+
+		var context = canvas.getContext('2d');
+		context.drawImage(image, 0, 0);
+
+		var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+		console.log("width",canvas.width)
+		//var data = imageData.data;
+
+		var pixelData = [];
+
+		var division = $('#division').val()
+		var startAngle = $('#startAngle').val()
+		var endAngle = $('#endAngle').val()
+
+		var cnt =0;
+
+		for(var i=startAngle; i<=endAngle; i+=360/division){
+			pixelData[cnt] = [];
+			for(var j=0; j<radius; j++){
+				var data = context.getImageData(Math.floor(j*Math.cos(i)*radius), Math.floor(j*Math.sin(i)*radius), 1, 1);
+				//console.log(Math.floor(j*Math.cos(i)*radius), Math.floor(j*Math.sin(i)*radius))
+				var red = data.data[0];
+				var green = data.data[1];
+				var blue = data.data[2];
+				var alpha = data.data[3];
+				pixelData[cnt][j]={red, green, blue, alpha}
+			}
+			cnt++;
+		}
+
+		console.log(pixelData);
+
+	} catch (error) {
+		alert(error);
 	}
 }

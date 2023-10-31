@@ -1,0 +1,10 @@
+/* 下記は円形にするなら必須です。 */
+.cropper-view-box,
+.cropper-face {
+    border-radius: 50%;
+}
+
+/* 下記はできれば必要なスタイルかと思います。（厳密にはスタイルなど必要ありませんが、最低現のスタイルとしてという意味です。） */
+.cropper-container {
+    width: 100%;
+}

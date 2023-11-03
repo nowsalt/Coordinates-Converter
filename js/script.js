@@ -142,7 +142,7 @@ function convert() {
 				var red = data.data[0];
 				var green = data.data[1];
 				var blue = data.data[2];
-				pixelData[cnt][j-1]={red, green, blue, alpha}
+				pixelData[cnt][j-1]={red, green, blue}
 			}
 			cnt++;
 		}
